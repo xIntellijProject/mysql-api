@@ -1,0 +1,3 @@
+name: MySQLAPI
+version: 1.0
+main: me.phil.mysql.api.MySQLAPI
