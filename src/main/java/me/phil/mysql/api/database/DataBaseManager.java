@@ -81,8 +81,9 @@ public final class DataBaseManager {
                 this.connection.close();
                 MySQLAPI.getConnections().remove(this);
                 runnable.run();
-                String rawUrl = MessageFormat.format("jdbc:mysql://{0}:{1}/{2}", this.host, String.valueOf(this.port).replace(".", ""), this.database);
-                MySQLAPI.getPlugin(MySQLAPI.class).getLogger().log(Level.INFO, "Disconnected from \"" + rawUrl + "\"!");
+
+                String url = MessageFormat.format("jdbc:mysql://{0}:{1}/{2}", this.host, String.valueOf(this.port).replace(".", ""), this.database);
+                MySQLAPI.getPlugin(MySQLAPI.class).getLogger().log(Level.INFO, "Disconnected from \"" + url + "\"!");
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
@@ -95,8 +96,9 @@ public final class DataBaseManager {
             try {
                 this.connection.close();
                 MySQLAPI.getConnections().remove(this);
-                String rawUrl = MessageFormat.format("jdbc:mysql://{0}:{1}/{2}", this.host, String.valueOf(this.port).replace(".", ""), this.database);
-                MySQLAPI.getPlugin(MySQLAPI.class).getLogger().log(Level.INFO, "Disconnected from \"" + rawUrl + "\"!");
+
+                String url = MessageFormat.format("jdbc:mysql://{0}:{1}/{2}", this.host, String.valueOf(this.port).replace(".", ""), this.database);
+                MySQLAPI.getPlugin(MySQLAPI.class).getLogger().log(Level.INFO, "Disconnected from \"" + url + "\"!");
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
