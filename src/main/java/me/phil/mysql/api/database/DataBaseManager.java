@@ -52,12 +52,10 @@ public final class DataBaseManager {
 
     public final void connect() {
         String url = MessageFormat.format("jdbc:mysql://{0}:{1}/{2}", this.host, String.valueOf(this.port).replace(".", ""), this.database);
-        url += "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true";
         try {
-            this.connection = DriverManager.getConnection(url, username, password);
+            this.connection = DriverManager.getConnection(url + "autoReconnect=true", username, password);
             MySQLAPI.getConnections().add(this);
-            String rawUrl = MessageFormat.format("jdbc:mysql://{0}:{1}/{2}", this.host, String.valueOf(this.port).replace(".", ""), this.database);
-            MySQLAPI.getPlugin(MySQLAPI.class).getLogger().log(Level.INFO, "Successfully connected to \"" + rawUrl + "\"!");
+            MySQLAPI.getPlugin(MySQLAPI.class).getLogger().log(Level.INFO, "Successfully connected to \"" + url + "\"!");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -65,13 +63,12 @@ public final class DataBaseManager {
 
     public final void connect(Runnable runnable) {
         String url = MessageFormat.format("jdbc:mysql://{0}:{1}/{2}", this.host, String.valueOf(this.port).replace(".", ""), this.database);
-        url += "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true";
         try {
-            this.connection = DriverManager.getConnection(url, username, password);
-            MySQLAPI.getConnections().add(this);
+            this.connection = DriverManager.getConnection(url + "autoReconnect=true", username, password);
             runnable.run();
-            String rawUrl = MessageFormat.format("jdbc:mysql://{0}:{1}/{2}", this.host, String.valueOf(this.port).replace(".", ""), this.database);
-            MySQLAPI.getPlugin(MySQLAPI.class).getLogger().log(Level.INFO, "Successfully connected to \"" + rawUrl + "\"!");
+
+            MySQLAPI.getConnections().add(this);
+            MySQLAPI.getPlugin(MySQLAPI.class).getLogger().log(Level.INFO, "Successfully connected to \"" + url + "\"!");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
