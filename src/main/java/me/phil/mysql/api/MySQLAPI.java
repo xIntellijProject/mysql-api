@@ -29,5 +29,6 @@ public final class MySQLAPI extends JavaPlugin {
             if (connection == null) return;
             connection.disconnect();
         });
+        connections.clear();
     }
 }
