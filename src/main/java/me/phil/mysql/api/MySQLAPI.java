@@ -1,6 +1,5 @@
 package me.phil.mysql.api;
 
-import lombok.Getter;
 import me.phil.mysql.api.database.DataBaseManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -9,7 +8,6 @@ import java.util.List;
 
 public final class MySQLAPI extends JavaPlugin {
 
-    @Getter
     private static List<DataBaseManager> connections = new LinkedList<>();
 
     @Override
@@ -30,5 +28,12 @@ public final class MySQLAPI extends JavaPlugin {
             connection.disconnect();
         });
         connections.clear();
+    }
+
+    /**
+     * @return {@link MySQLAPI#connections}
+     */
+    public static List<DataBaseManager> getConnections() {
+        return connections;
     }
 }
