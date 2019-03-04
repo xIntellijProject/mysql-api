@@ -1,5 +1,6 @@
 package me.phil.mysql.api.event;
 
+import lombok.Getter;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
@@ -10,6 +11,7 @@ public class DatabaseUpdateEvent extends Event
 
     private static HandlerList handlerList = new HandlerList();
 
+    @Getter
     private Connection connection;
 
     public DatabaseUpdateEvent(Connection connection)

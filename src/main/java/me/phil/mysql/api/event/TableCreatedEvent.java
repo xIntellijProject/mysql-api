@@ -1,5 +1,6 @@
 package me.phil.mysql.api.event;
 
+import lombok.Getter;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
@@ -10,8 +11,10 @@ public class TableCreatedEvent extends Event
 
     private static HandlerList handlerList = new HandlerList();
 
-    private String tableName;
+    @Getter
     private Connection connection;
+    @Getter
+    private String tableName;
 
     public TableCreatedEvent(String tableName, Connection connection)
     {
