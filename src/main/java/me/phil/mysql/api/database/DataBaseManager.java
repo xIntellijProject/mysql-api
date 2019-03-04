@@ -98,7 +98,7 @@ public final class DataBaseManager
         String url = MessageFormat.format("jdbc:mysql://{0}:{1}/{2}", this.host, String.valueOf(this.port).replace(".", ""), this.database);
         try
         {
-            this.connection = DriverManager.getConnection(url + "autoReconnect=true", username, password);
+            this.connection = DriverManager.getConnection(url + "?autoReconnect=true", username, password);
             MySQLAPI.getConnections().add(this);
             MySQLAPI.getPlugin(MySQLAPI.class).getLogger().log(Level.INFO, "Successfully connected to \"" + url + "\"!");
             Bukkit.getPluginManager().callEvent(new SuccessfullyConnectedEvent(this.connection));
@@ -118,7 +118,7 @@ public final class DataBaseManager
         String url = MessageFormat.format("jdbc:mysql://{0}:{1}/{2}", this.host, String.valueOf(this.port).replace(".", ""), this.database);
         try
         {
-            this.connection = DriverManager.getConnection(url + "&autoReconnect=true", username, password);
+            this.connection = DriverManager.getConnection(url + "?autoReconnect=true", username, password);
             runnable.run();
 
             MySQLAPI.getConnections().add(this);
