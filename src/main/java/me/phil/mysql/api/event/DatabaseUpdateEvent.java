@@ -9,6 +9,10 @@ import java.sql.Connection;
 public class DatabaseUpdateEvent extends Event
 {
 
+    /*
+     * Will get called when a update to the database was done.
+     */
+
     private static HandlerList handlerList = new HandlerList();
 
     @Getter

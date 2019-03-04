@@ -9,6 +9,10 @@ import java.sql.Connection;
 public class SuccessfullyConnectedEvent extends Event
 {
 
+    /*
+     * Will get called when connection to database will successfully connect.
+     */
+
     private static HandlerList handlerList = new HandlerList();
 
     @Getter

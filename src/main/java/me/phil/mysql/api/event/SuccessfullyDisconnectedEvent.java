@@ -9,6 +9,10 @@ import java.sql.Connection;
 public class SuccessfullyDisconnectedEvent extends Event
 {
 
+    /*
+     * Will get called when connection to database will successfully disconnect.
+     */
+
     private static HandlerList handlerList = new HandlerList();
 
     @Getter

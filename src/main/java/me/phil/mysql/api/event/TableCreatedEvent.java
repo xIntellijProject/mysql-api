@@ -9,6 +9,10 @@ import java.sql.Connection;
 public class TableCreatedEvent extends Event
 {
 
+    /*
+     * Will get called when a table was created.
+     */
+
     private static HandlerList handlerList = new HandlerList();
 
     @Getter
